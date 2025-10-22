@@ -15,45 +15,34 @@ const App = () => {
   if (!isLoaded) return null;
 
   return (
-    <>
-      <button
-        onClick={() => {
-          throw new Error("Test Sentry error from frontend!");
-        }}
-      >
-        Throw Sentry Error
-      </button>
-      <SentryRoutes>
-        <Route
-          path="/"
-          element={
-            isSignedIn ? <HomePage /> : <Navigate to={"/auth"} replace />
-          }
-        />
-        <Route
-          path="/auth"
-          element={!isSignedIn ? <AuthPage /> : <Navigate to={"/"} replace />}
-        />
+    <SentryRoutes>
+      <Route
+        path="/"
+        element={isSignedIn ? <HomePage /> : <Navigate to={"/auth"} replace />}
+      />
+      <Route
+        path="/auth"
+        element={!isSignedIn ? <AuthPage /> : <Navigate to={"/"} replace />}
+      />
 
-        {/* <Route
+      {/* <Route
           path="/call/:id"
           element={
             isSignedIn ? <CallPage /> : <Navigate to={"/auth"} replace />
           }
         /> */}
 
-        <Route
-          path="*"
-          element={
-            isSignedIn ? (
-              <Navigate to={"/"} replace />
-            ) : (
-              <Navigate to={"/auth"} replace />
-            )
-          }
-        />
-      </SentryRoutes>
-    </>
+      <Route
+        path="*"
+        element={
+          isSignedIn ? (
+            <Navigate to={"/"} replace />
+          ) : (
+            <Navigate to={"/auth"} replace />
+          )
+        }
+      />
+    </SentryRoutes>
   );
 };
 

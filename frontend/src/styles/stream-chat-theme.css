@@ -771,7 +771,7 @@
 }
 
 .radio-option {
-  display: flex;
+  display: flex !important;
   align-items: flex-start;
   gap: 1rem;
   padding: 1.25rem;
@@ -783,7 +783,6 @@
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
-  display: flex !important;
 }
 
 .radio-option::before {
